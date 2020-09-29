@@ -1,24 +1,30 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const problem = document.getElementById('problem');
+const form = document.getElementById('Form');
+const username = document.getElementById('Name');
+const email = document.getElementById('Email');
+const problem = document.getElementById('Problem');
 
 form.addEventListener('submit', e => {
-    e.preventDefault();
+    if (checkInputs()) {
 
-    checkInputs();
+    }
+    else{
+        e.preventDefault();
+    }
 });
 
 function checkInputs() {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
     const problemValue = problem.value.trim();
-
+    var x = false;
+    var y = false;
+    var z = false;
 
     if (usernameValue === '') {
         setErrorFor(username, 'Please enter your name!');
     } else {
         setSuccessFor(username);
+        var x = true;
     }
 
     if (emailValue === '') {
@@ -27,12 +33,21 @@ function checkInputs() {
         setErrorFor(email, 'Not a valid email');
     } else {
         setSuccessFor(email);
+        var y = true;
     }
 
     if (problemValue === '') {
         setErrorFor(problem, 'Please describe the problem!');
     } else {
         setSuccessFor(problem);
+        var z = true;
+    }
+
+    if (x == true && y == true && z == true){
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
