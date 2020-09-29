@@ -1,6 +1,6 @@
 <?php
 
-if($_POST["submit"]) {
+if($_POST['submit']) {
     $recipient="norbiii@icloud.com";
     $subject="Részeg Buszsofőr Support: $sender";
     $sender=$_POST["sender"];
